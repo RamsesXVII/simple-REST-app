@@ -34,7 +34,7 @@ public class ArtistContainer {
     /* GET: Restituisce la collezione di tutti gli artisti */
     @GET
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_XML})
-    public Collection<Artist> getProducts() {
+    public Collection<Artist> getArtists() {
 		try {
 			Collection<Artist> artists = em.createQuery("SELECT p FROM Artist p").getResultList();
 			if (artists==null) {
@@ -54,7 +54,7 @@ public class ArtistContainer {
      * sulla base di un form con campi id, description e price */
     @POST
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-    public Response createProduct(
+    public Response createArtist(
 			@FormParam("id") int id,
 			@FormParam("name") String name,
 			@FormParam("country") String country) {
@@ -82,7 +82,7 @@ public class ArtistContainer {
     /* POST: Aggiunge un nuovo prodotto, passato con JSON o XML */
     @POST
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML})
-    public Response createProduct(Artist p) {
+    public Response createArtist(Artist p) {
 		int id = p.getId();
 		/* fa questa ricerca per evitare che venga sollevata un'eccezione al momento del commit */
 		Artist oldArtist = em.find(Artist.class, id);

@@ -37,7 +37,7 @@ public class ArtistResource {
     /* GET: Cerca un artista */
     @GET
     @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML})
-    public Artist getProduct(@PathParam("id") int id) {
+    public Artist getArtist(@PathParam("id") int id) {
 		try {
 			Artist p = em.find(Artist.class, id);
 	    	if (p==null) {
@@ -56,7 +56,7 @@ public class ArtistResource {
     /* PUT: Aggiorna un prodotto, passato con JSON o XML */
     @PUT
 	@Consumes({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, MediaType.TEXT_XML})
-    public Response updateProduct(@PathParam("id") int id, Artist p) {
+    public Response updateArtist(@PathParam("id") int id, Artist p) {
 		/* fa questa ricerca per evitare che venga sollevata un'eccezione al momento del commit */
     	Artist oldProduct = em.find(Artist.class, id);
 		if (oldProduct==null) {
@@ -74,9 +74,9 @@ public class ArtistResource {
 		}
     }
 
-    /* DELETE: Cancella un prodotto */
+    /* DELETE: Cancella un artista */
     @DELETE
-    public Response deleteProduct(@PathParam("id") int id) {
+    public Response deleteArtist(@PathParam("id") int id) {
 		try {
 			Artist product = em.find(Artist.class, id);
 	    	if (product==null) {
