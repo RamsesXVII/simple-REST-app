@@ -1,7 +1,9 @@
-package asw.rest.productmanager;
+package asw.rest.artistmanager;
+
+
+import java.util.List;
 
 import javax.persistence.*;
-
 import javax.xml.bind.annotation.*;
 
 
@@ -22,6 +24,9 @@ public class Artist implements java.io.Serializable {
 
     @XmlElement
 	private String country;
+    
+    @OneToMany(mappedBy="artist")
+	private List<Song> song;
 
 	public Artist() {
 	}
@@ -63,6 +68,13 @@ public class Artist implements java.io.Serializable {
 			", name=" + name +
 			", country=" + country +
 			"]";
+	}
+	
+	public List<Song> getSong() {
+		return song;
+	}
+	public void setSong(List<Song> song) {
+		this.song = song;
 	}
 
 }

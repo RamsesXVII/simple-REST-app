@@ -4,6 +4,7 @@
 	    <jta-data-source>PostgresSQL Database</jta-data-source>
             <!-- jar-file>product-manager-rest.war</jar-file -->
             <class>asw.rest.productmanager.Artist</class> 
+             <class>asw.rest.productmanager.Song</class> 
             <properties>
 	           <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema(ForeignKeys=true)" />
     	    </properties>

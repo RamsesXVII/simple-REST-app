@@ -1,4 +1,4 @@
-package asw.rest.productmanager;
+package asw.rest.artistmanager;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.*;
